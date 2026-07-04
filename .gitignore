@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Local Playwright MCP test artifacts (debugging only)
+.playwright-mcp/
+
+# Logs
+*.log
+
+# Editor / OS cruft
+Thumbs.db
+.idea/
+.vscode/

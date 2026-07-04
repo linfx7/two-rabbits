@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Two Rabbits",
+  "version": "1.0.1",
+  "description": "A specialized developer tool designed to simulate diverse browser configurations and environments.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "scripting",
+    "storage",
+    "webNavigation",
+    "declarativeNetRequest",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "Two Rabbits",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  }
+}

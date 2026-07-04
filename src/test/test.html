@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Two Rabbits — Self-test</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 14px/1.5 -apple-system, system-ui, sans-serif; margin: 0; padding: 24px; max-width: 760px; }
+    h1 { font-size: 18px; margin: 0 0 4px; }
+    p.lead { color: #666; margin: 0 0 16px; }
+    .bar { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
+    select, button { font: inherit; padding: 7px 12px; border-radius: 4px; }
+    select { border: 1px solid #ccc; background: inherit; color: inherit; }
+    button { cursor: pointer; border: 0; background: #1a73e8; color: #fff; }
+    button.secondary { background: #555; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #e3e3e3; vertical-align: top; }
+    @media (prefers-color-scheme: dark) { th,td { border-color: #333; } p.lead { color: #aaa; } }
+    .ok { color: #1e8e3e; font-weight: 700; }
+    .bad { color: #d93025; font-weight: 700; }
+    .muted { color: #888; font-size: 12px; }
+    .mono { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Two Rabbits — self-test</h1>
+  <p class="lead">Applies a profile directly in this page, then evaluates all six signals. Use this to confirm the overrides work before trusting them on a real site. Real (un-spoofed) values were captured on load.</p>
+
+  <div class="bar">
+    <label for="preset">Preset</label>
+    <select id="preset"></select>
+    <button id="apply">Apply &amp; test</button>
+    <button id="reset" class="secondary">Reset page</button>
+  </div>
+
+  <table>
+    <thead><tr><th>Signal</th><th>Real (on load)</th><th>Spoofed</th><th>Expected</th><th>Result</th></tr></thead>
+    <tbody id="body"></tbody>
+  </table>
+  <p class="muted" id="note"></p>
+
+  <script type="module" src="test.js"></script>
+</body>
+</html>

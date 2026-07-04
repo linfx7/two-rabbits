@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Two Rabbits — Options</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 14px/1.5 -apple-system, system-ui, sans-serif; margin: 0; padding: 24px; max-width: 860px; }
+    h1 { font-size: 18px; margin: 0 0 4px; }
+    p.lead { color: #666; margin: 0 0 20px; }
+    section { background: #fff; border: 1px solid #e3e3e3; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+    @media (prefers-color-scheme: dark) { section { background: #1e1e1e; border-color: #333; } p.lead { color: #aaa; } }
+    label { display: block; font-weight: 600; margin: 10px 0 4px; }
+    input[type=text], select { width: 100%; box-sizing: border-box; padding: 6px 8px; font: inherit; border: 1px solid #ccc; border-radius: 4px; background: inherit; color: inherit; }
+    .row { display: flex; gap: 8px; }
+    .row > div { flex: 1; }
+    button { cursor: pointer; padding: 7px 14px; border: 0; border-radius: 4px; background: #1a73e8; color: #fff; font: inherit; }
+    button.secondary { background: #555; }
+    button.danger { background: #d93025; }
+    button.ghost { background: transparent; color: #1a73e8; padding: 4px 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #eee; vertical-align: middle; }
+    @media (prefers-color-scheme: dark) { th, td { border-color: #333; } }
+    .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; background: #e8f0fe; color: #1a73e8; }
+    .pill.off { background: #eee; color: #555; }
+    .toggle { position: relative; display: inline-block; width: 38px; height: 20px; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle .slider { position: absolute; inset: 0; background: #ccc; border-radius: 20px; transition: .2s; }
+    .toggle .slider:before { content: ""; position: absolute; width: 16px; height: 16px; left: 2px; top: 2px; background: #fff; border-radius: 50%; transition: .2s; }
+    .toggle input:checked + .slider { background: #1a73e8; }
+    .toggle input:checked + .slider:before { transform: translateX(18px); }
+    .muted { color: #888; font-size: 12px; }
+    a { color: #1a73e8; }
+  </style>
+</head>
+<body>
+  <h1>Two Rabbits</h1>
+  <p class="lead">Register domains and choose a locale profile. Only listed domains are spoofed; everywhere else your real values are used.</p>
+
+  <section>
+    <h2 style="margin-top:0">Add / edit domain</h2>
+    <div class="row">
+      <div style="flex:1.2">
+        <label for="domain">Domain</label>
+        <input id="domain" type="text" placeholder="example.com" />
+      </div>
+      <div>
+        <label for="preset">Preset</label>
+        <select id="preset"><option value="">— Select a preset —</option></select>
+      </div>
+    </div>
+
+    <div style="margin-top:14px">
+      <button id="save">Add domain</button>
+      <button id="cancel" class="ghost" style="display:none">Cancel edit</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="margin-top:0">Configured domains</h2>
+    <table>
+      <thead><tr><th>Domain</th><th>Profile</th><th style="width:60px">Enabled</th><th style="width:120px"></th></tr></thead>
+      <tbody id="rulesBody"><tr><td colspan="4" class="muted">No domains yet.</td></tr></tbody>
+    </table>
+    <p class="muted" style="margin-bottom:0">Enabling a domain requests host access for it (needed to rewrite request headers). <a href="#" id="openTest">Open self-test page</a></p>
+  </section>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
